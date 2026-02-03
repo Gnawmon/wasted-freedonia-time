@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>How much time did you waste on MCO?</title>
+
+</head>
+
+<body>
+    <div class="my-div">
+        <div class="div-inside-div">
+            <span>
+                <h2>how much time did you waste on mco???</h2>
+            </span>
+            <p> enter your username below and find out!!! </p>
+            <form action="{{ url_for("hell")}}" method="post">
+                <input placeholder="usernamne" name="username">
+                <button type="submit">disappoint me</button>
+
+            </form>
+            <span id="results">
+                You, {{ player }}, have spent <span class="hours"> {{ hours }} </span> hours on MCO. <br><br> let's look
+                at what you could've done
+                with that time instead.
+            </span><br><br>
+            <span id="results">You could've</span>
+            {% for shame in shame %}
+            <p id="results">{{shame}}</p>
+            {% endfor %}
+            <p id="results">and yet, I'm glad you're a part of this community :)</p>
+        </div>
+        <div class="footer">
+            <p>Made by <a href="https://gnaw.monster">gnawmon</a> or whatever. Source code <a href="somewhere">avaible
+                    somewhere</a>, licensed under AGPL-3.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<style>
+    html {
+        min-height: 100%;
+    }
+
+    body {
+        background: linear-gradient(#25252a 10%, #0f0b0f);
+        margin: 0;
+    }
+
+    .my-div {
+        background-color: rgba(16, 16, 16, 0.548);
+        border: 1px rgba(255, 255, 255, 0.34) solid;
+        align-items: left;
+        margin: auto;
+        display: flex;
+        flex-flow: column;
+        height: 97%;
+        width: 70%;
+        box-shadow: 0px 0px 4px 1px rgba(93, 93, 93, 0.592);
+
+        border-radius: 2px;
+
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        align-self: center;
+
+    }
+
+    .div-inside-div {
+        padding: 1rem;
+        flex: 1 0 auto;
+
+    }
+
+    .footer {
+        bottom: 0;
+        background-color: rgba(53, 53, 53, 0.341);
+        height: 5%;
+        margin: 0;
+    }
+
+    .footer p {
+        padding-left: 1rem;
+        font-size: small;
+        color: rgba(255, 255, 255, 0.601);
+    }
+
+    h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: underline;
+        color: rgb(210, 210, 210);
+    }
+
+    p,
+    span {
+
+        color: rgb(230, 230, 230);
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: rgba(4, 4, 4, 0.884) 0 0 4px;
+
+    }
+
+    a {
+        color: rgba(255, 192, 203, 0.664);
+    }
+
+    .hours {
+        background: url("/static/fire.gif") repeat;
+        background-size: 100px auto;
+
+
+
+        animation: glow 1s ease-in-out infinite alternate;
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 900;
+        font-size: xx-large;
+        letter-spacing: 3px;
+       -webkit-text-stroke: 2px #000000ba;
+    }
+
+
+#results{
+    display: none;
+}
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 30px #ff4d00, 0 0 40px #af1616;
+        }
+
+        to {
+            text-shadow: 0 0 50px #e64d00, 0 0 70px #af1616;
+        }
+    }
+</style>
+
+
+  {% if shame %}
+<style>
+#results{
+    display: block;
+}    
+</style>
+  {% endif %}
