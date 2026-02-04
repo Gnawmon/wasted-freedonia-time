@@ -18,12 +18,12 @@ def hell():
                 return render_template("main.html", player=username, hours=str(math.trunc(playtime/3600)),shame=shameText.split('\n'))
                 # self documenting code
             else:
-               return render_template("main.html", result="this fella never even joined mco") 
+               return render_template("main.html", error="this fella never even joined mco") 
         else:
-            return render_template("main.html", result="username cant be longer than 16 characters")
+            return render_template("main.html", error="username cant be longer than 16 characters")
         
-        if format(username) == "":
-            return render_template("main.html", result="please input an username")
+        if doesPlayerExist(username):
+            return render_template("main.html", error="please input an username")
 
 
     return render_template("main.html")
