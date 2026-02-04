@@ -29,4 +29,5 @@ def hell():
     return render_template("main.html")
 
 # idk how this wsgi stuff works
-serve(app, listen='*:8080')
+print("online")
+serve(app, listen='*:80')
